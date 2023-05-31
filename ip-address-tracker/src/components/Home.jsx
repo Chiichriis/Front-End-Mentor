@@ -5,7 +5,7 @@ import Map from './Map';
 
 
 const 
-Home = ({ handleInput, info, fetchData }) => {
+Home = ({ handleInput, info, handleSubmit }) => {
   return (
     <div className='bg-transparent h-screen relative w-full'>
           <div className=" bg-mobile md:bg-desktop  flex flex-col items-center p-5 h-60 bg-fill bg-no-repeat w-full ">
@@ -17,7 +17,7 @@ Home = ({ handleInput, info, fetchData }) => {
                 placeholder='Search for any IP address or domain' 
                 onChange={handleInput}
              />
-              <div className='bg-black rounded-r-xl flex items-center justify-center p-3 h-full w-1/6 md:w-20 cursor-pointer' onClick={fetchData}>
+              <div className='bg-black rounded-r-xl flex items-center justify-center p-3 h-full w-1/6 md:w-20 cursor-pointer' onClick={handleSubmit}>
                 <img src={arrow} alt="search" />
               </div>
             </div>
@@ -26,7 +26,9 @@ Home = ({ handleInput, info, fetchData }) => {
           <Card
             info = {info} 
           />
-          <Map />
+          <Map
+            info = {info}
+          />
     </div>
 
   )

@@ -1,9 +1,15 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
 import './Map.css'
+import { Icon } from 'leaflet';
 import indicator from '../assets/images/icon-location.svg'
 
 const Map = () => {
+
+
+  const customIcon = new Icon({
+    iconUrl: indicator
+  })
 
   const position = [51.505, -0.09]
   return (
@@ -13,11 +19,12 @@ const Map = () => {
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
 
-  <Marker position={position}>
-    <Popup icon ={indicator}>
+  <Marker position={position} icon={customIcon}>
+    <Popup>
       A pretty CSS3 popup. <br /> Easily customizable.
     </Popup>
   </Marker>
+  
 </MapContainer>
 
   )
